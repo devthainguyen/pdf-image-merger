@@ -6,7 +6,7 @@ from app.ui.main_window import MainWindow
 def main():
     root = tk.Tk()
 
-    MainWindow(root)
+    app = MainWindow(root)
 
     root.mainloop()
 
