@@ -1,4 +1,4 @@
-import fitz
+import pymupdf
 
 
 def get_pdf_page_info(pdf_path: str):
@@ -13,7 +13,7 @@ def get_pdf_page_info(pdf_path: str):
         }
     """
 
-    document = fitz.open(pdf_path)
+    document = pymupdf.open(pdf_path)
 
     try:
         if len(document) == 0:
@@ -53,10 +53,10 @@ def merge_pdf_pages(
     PyMuPDF sẽ import trực tiếp nội dung trang PDF.
     """
 
-    source1 = fitz.open(pdf1_path)
-    source2 = fitz.open(pdf2_path)
+    source1 = pymupdf.open(pdf1_path)
+    source2 = pymupdf.open(pdf2_path)
 
-    output = fitz.open()
+    output = pymupdf.open()
 
     try:
         if len(source1) == 0:
@@ -132,7 +132,7 @@ def merge_pdf_pages(
         # PDF 1 - bên trái
         # --------------------------------------------------
 
-        output_rect1 = fitz.Rect(
+        output_rect1 = pymupdf.Rect(
             0,
             0,
             width1,
@@ -152,7 +152,7 @@ def merge_pdf_pages(
 
         x2 = width1 + separator_width
 
-        output_rect2 = fitz.Rect(
+        output_rect2 = pymupdf.Rect(
             x2,
             0,
             x2 + width2,

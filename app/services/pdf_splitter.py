@@ -1,6 +1,6 @@
 from pathlib import Path
 
-import fitz
+import pymupdf
 
 
 def split_pdf(
@@ -32,7 +32,7 @@ def split_pdf(
         exist_ok=True
     )
 
-    source = fitz.open(
+    source = pymupdf.open(
         input_path
     )
 
@@ -64,7 +64,7 @@ def split_pdf(
                 output_path / filename
             )
 
-            new_pdf = fitz.open()
+            new_pdf = pymupdf.open()
 
             try:
 
