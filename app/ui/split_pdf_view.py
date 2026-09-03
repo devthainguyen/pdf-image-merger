@@ -6,7 +6,7 @@ from tkinter import filedialog
 from tkinter import messagebox
 from tkinter import ttk
 
-import fitz
+import pymupdf
 
 from app.services.pdf_splitter import (
     split_pdf,
@@ -244,7 +244,7 @@ class SplitPdfView(tk.Frame):
 
         try:
 
-            document = fitz.open(
+            document = pymupdf.open(
                 path
             )
 
