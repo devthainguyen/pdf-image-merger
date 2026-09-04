@@ -1,7 +1,7 @@
 import io
 import tkinter as tk
 
-import fitz
+import pymupdf
 
 from PIL import Image, ImageTk
 
@@ -53,7 +53,7 @@ class PDFPreview:
         max_height: int = 430
     ):
 
-        document = fitz.open(
+        document = pymupdf.open(
             pdf_path
         )
 
@@ -65,7 +65,7 @@ class PDFPreview:
             page = document[0]
 
             # Preview chỉ cần resolution thấp.
-            matrix = fitz.Matrix(
+            matrix = pymupdf.Matrix(
                 1.0,
                 1.0
             )
